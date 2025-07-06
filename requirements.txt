@@ -1,0 +1,13 @@
+apache-airflow==2.10.2
+apache-airflow-providers-postgres
+apache-airflow-providers-http
+apache-airflow-providers-slack
+apache-airflow-providers-amazon
+astronomer-cosmos==1
+psycopg2-binary
+pandas
+pendulum
+requests
+boto3
+python-dotenv
+minio

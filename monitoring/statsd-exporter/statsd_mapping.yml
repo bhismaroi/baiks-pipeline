@@ -1,0 +1,5 @@
+mappings:
+  - match: airflow.task.*
+    name: airflow_task
+    labels:
+      task: "$1"

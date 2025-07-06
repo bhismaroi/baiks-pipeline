@@ -1,0 +1,15 @@
+bikes_store:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: warehouse-postgres
+      user: postgres
+      password: postgres
+      port: 5432
+      dbname: postgres
+      schema: public
+      threads: 4
+      keepalives_idle: 0 # seconds
+      connect_timeout: 10 # seconds
+      retries: 3

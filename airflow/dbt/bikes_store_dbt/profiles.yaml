@@ -1,0 +1,15 @@
+config:
+  send_anonymous_usage_stats: False
+
+default:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: warehouse
+      user: postgres
+      pass: postgres
+      port: 5432
+      dbname: postgres
+      schema: public
+      threads: 4

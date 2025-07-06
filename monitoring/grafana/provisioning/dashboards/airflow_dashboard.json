@@ -1,0 +1,55 @@
+{
+    "dashboard": {
+      "title": "Airflow Bikes Store Monitoring",
+      "panels": [
+        {
+          "id": 1,
+          "title": "Task Duration",
+          "type": "timeseries",
+          "targets": [
+            {
+              "expr": "airflow_task_duration_seconds_sum{task=~\".+\"}",
+              "legendFormat": "{{task}}"
+            }
+          ],
+          "fieldConfig": {
+            "defaults": {
+              "unit": "seconds"
+            }
+          }
+        },
+        {
+          "id": 2,
+          "title": "Task Success/Failure Count",
+          "type": "bargauge",
+          "targets": [
+            {
+              "expr": "rate(airflow_task_success_total{task=~\".+\"}[5m])",
+              "legendFormat": "{{task}}_success"
+            },
+            {
+              "expr": "rate(airflow_task_failure_total{task=~\".+\"}[5m])",
+              "legendFormat": "{{task}}_failure"
+            }
+          ],
+          "fieldConfig": {
+            "defaults": {
+              "unit": "short",
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  { "color": "green", "value": null },
+                  { "color": "red", "value": 0 }
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "schemaVersion": 30,
+      "time": {
+        "from": "now-6h",
+        "to": "now"
+      }
+    }
+  }
